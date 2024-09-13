@@ -1,14 +1,50 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { GoArrowRight } from 'react-icons/go';
 
 const Home = () => {
+  return (
+    <div className="relative bg-gray-800">
+      {/* Background Image */}
+      <div className="absolute inset-0 h-[75dvh]">
+        <img
+          src="/hero.jpg" 
+          alt="Solar Panels"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+      </div>
 
-      return (
-            <div className='w-1/3 mx-auto mt-5 p-3 border text-center'>
-                  <h1>Homepage</h1>
-                  <Link to='/dashboard' className='underline text-sky-900'>Dashboard</Link>
-            </div>
-      );
+      {/* Hero Content */}
+      <div className="relative z-10 flex flex-col items-start justify-center text-left text-white px-4 h-[75dvh] max-w-[1300px] mx-auto">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          Our Passion is Solar Energy and Sustainable Development
+        </h1>
+        <p className="text-base md:text-lg mb-8">
+          Energy supply and environmental problems present today's society with demanding tasks
+        </p>
+        <a
+          href="#learn-more"
+          className="bg-yellow-500 hover:bg-yellow-600 text-white py-3 px-6 rounded font-semibold text-lg flex justify-center items-center gap-2"
+        >
+          <p>Learn more </p>
+          <GoArrowRight className='h-7 w-7' />
+        </a>
+      </div>
+
+      {/* Scroll Down Indicator */}
+      <div className="absolute bottom-8 w-full text-center">
+        <svg
+          className="w-6 h-6 mx-auto text-white animate-bounce"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+    </div>
+  );
 };
 
 export default Home;
