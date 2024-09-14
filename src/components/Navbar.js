@@ -1,26 +1,35 @@
 import React, { useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-// import { FaBars, FaTimes } from 'react-icons/fa'; 
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { CiMenuBurger } from 'react-icons/ci';
 import { AiOutlineClose } from 'react-icons/ai';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false); // State to control mobile menu visibility
+  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    contactSection.scrollIntoView({ behavior: 'smooth' });
-    setIsOpen(false); // Close the menu after scrolling
+    if (location.pathname !== '/') {
+      // Navigate to the homepage first
+      navigate('/');
+    }
+
+    // Scroll to the contact section after navigation
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      setIsOpen(false); // Close the menu after scrolling
+    }, 100); // Delay to ensure the navigation is complete before scrolling
   };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const location = useLocation();
-  console.log(location.pathname);
-
   const navLinks = [
+    { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
     { name: "About", path: "/about" },
   ];
@@ -48,13 +57,9 @@ const Navbar = () => {
                 item.path === location.pathname
                   ? "border-b-4 border-yellow-500"
                   : "border-white"
-              } cursor-pointer border-b-4  hover:border-yellow-500`}
+              } cursor-pointer border-b-4 hover:border-yellow-500`}
             >
-              <NavLink
-                to={item.path}
-                end
-                className="block p-4"
-              >
+              <NavLink to={item.path} end className="block p-4">
                 {item.name}
               </NavLink>
             </li>
@@ -72,23 +77,22 @@ const Navbar = () => {
             isOpen ? 'translate-x-0' : '-translate-x-full'
           } transition-transform duration-300 ease-in-out md:hidden w-64 z-30`}
         >
-
-            <h2 className='px-6 py-5 '>Menu</h2>
-          <ul className="flex flex-col items-start pl-6 ">
+          <h2 className="px-6 py-5">Menu</h2>
+          <ul className="flex flex-col items-start pl-6">
             {navLinks.map((item) => (
               <li
                 key={item.path}
                 className={`w-full ${
                   item.path === location.pathname
-                    ? " border-yellow-500"
+                    ? "border-yellow-500"
                     : "border-white"
-                } border-r-8  hover:border-yellow-500 py-2`}
+                } border-r-8 hover:border-yellow-500 py-2`}
               >
                 <NavLink
                   to={item.path}
                   end
                   className="block py-2"
-                  onClick={() => setIsOpen(false)} // Close the menu when a link is clicked
+                  onClick={() => setIsOpen(false)}
                 >
                   {item.name}
                 </NavLink>
@@ -97,7 +101,7 @@ const Navbar = () => {
             <li className="w-full">
               <button
                 onClick={scrollToContact}
-                className="block w-full text-left py-4 border-r-8 border-white  hover:border-yellow-500"
+                className="block w-full text-left py-4 border-r-8 border-white hover:border-yellow-500"
               >
                 Contact
               </button>

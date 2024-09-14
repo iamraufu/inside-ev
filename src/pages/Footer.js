@@ -9,22 +9,22 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center text-white text-sm">
           <div className="text-center md:text-left">
-            <p>Member of GSAN solar</p>
-            <p>XYZ University of Applied Sciences</p>
-            <p>Copyright © 2024 All rights reserved</p>
+            <p>Member of the training program</p>
+            <p>University Name</p>
+            <p>Copyright © Document prepared - MoU</p>
           </div>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link  href="#" className="hover:underline">Socials</Link>
-            <a target='_blank'  rel="noreferrer" href="https://www.facebook.com/" className="hover:text-gray-300">
+            <Link href="#" className="hover:underline">Socials</Link>
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/" className="hover:text-gray-300">
               <FaFacebook size={24} />
             </a>
-            <a href="#" className="hover:text-gray-300">
+            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/" className="hover:text-gray-300">
               <FaInstagram size={24} />
             </a>
-            <a href="#" className="hover:text-gray-300">
+            <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/" className="hover:text-gray-300">
               <FaLinkedin size={24} />
             </a>
-            <a href="#" className="hover:text-gray-300">
+            <a target="_blank" rel="noreferrer" href="https://www.xing.com/" className="hover:text-gray-300">
               <FaXing size={24} />
             </a>
           </div>

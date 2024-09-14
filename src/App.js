@@ -4,7 +4,7 @@ import AuthProvider from './context/AuthProvider';
 import Home from './pages/Home';
 import NotFound from './components/NotFound';
 import Navbar from './components/Navbar';
-import Contact from './pages/Contact';
+// import Contact from './pages/Contact';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
 import Footer from './pages/Footer';
@@ -23,7 +23,7 @@ function App() {
             <Route path='*' element={<NotFound />} />
           </Routes>
         </div>
-        <Contact />
+       
         <Footer />
       </div>
     </AuthProvider>

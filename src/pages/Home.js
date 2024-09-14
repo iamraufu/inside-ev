@@ -1,8 +1,28 @@
 import { GoArrowRight } from "react-icons/go";
 import { Link } from "react-router-dom";
 import TestimonialsSlider from "../components/TestimonialsSlider";
+import Contact from "./Contact";
 
 const Home = () => {
+  const HoverCard = ({ image, title, description }) => {
+    return (
+      <div className="group relative w-70 h-70 bg-gray-200 overflow-hidden  shadow-lg cursor-pointer">
+        {/* Background Image */}
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+        />
+
+        {/* Overlay (Shown on Hover) */}
+        <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+          <h3 className="text-white text-2xl font-bold mb-4">{title}</h3>
+          <p className="text-white px-4">{description}</p>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
       <div className="relative bg-gray-800">
@@ -18,7 +38,7 @@ const Home = () => {
 
         {/* Hero Content */}
         <div className="relative z-10 flex flex-col items-start justify-center text-left text-white px-4 h-[75dvh] max-w-[1300px] mx-auto">
-          <div className="max-w-4xl" >   
+          <div className="max-w-4xl">
             <h1 className="text-3xl md:text-4xl w-full font-bold mb-4">
               Our Passion is Education and Academic Excellence
             </h1>
@@ -108,7 +128,25 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className="flex justify-center items-center min-h-[50dvh]">
+        <HoverCard
+          image="https://via.placeholder.com/300"
+          title="Our Passion"
+          description="ABC Course"
+        />
+        <HoverCard
+          image="https://via.placeholder.com/300"
+          title="Our Passion"
+          description="XYZ Course"
+        />
+        <HoverCard
+          image="https://via.placeholder.com/300"
+          title="Our Passion"
+          description="SSS Course"
+        />
+      </div>
       <TestimonialsSlider />
+      <Contact />
     </>
   );
 };
