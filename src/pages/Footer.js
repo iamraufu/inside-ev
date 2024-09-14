@@ -10,11 +10,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center text-white text-sm">
           <div className="text-center md:text-left">
             <p>Member of GSAN solar</p>
-            <p>SRH Berlin University of Applied Sciences</p>
-            <p>Copyright © 2020 All rights reserved</p>
+            <p>XYZ University of Applied Sciences</p>
+            <p>Copyright © 2024 All rights reserved</p>
           </div>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <Link  href="#" className="hover:underline">Impressum</Link>
+            <Link  href="#" className="hover:underline">Socials</Link>
             <a target='_blank'  rel="noreferrer" href="https://www.facebook.com/" className="hover:text-gray-300">
               <FaFacebook size={24} />
             </a>

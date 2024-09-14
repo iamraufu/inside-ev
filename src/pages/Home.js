@@ -1,5 +1,6 @@
 import { GoArrowRight } from "react-icons/go";
 import { Link } from "react-router-dom";
+import TestimonialsSlider from "../components/TestimonialsSlider";
 
 const Home = () => {
   return (
@@ -8,7 +9,7 @@ const Home = () => {
         {/* Background Image */}
         <div className="absolute inset-0 h-[75dvh]">
           <img
-            src="/hero.jpg"
+            src="/hero_new.jpg"
             alt="Solar Panels"
             className="w-full h-full object-cover"
           />
@@ -17,17 +18,19 @@ const Home = () => {
 
         {/* Hero Content */}
         <div className="relative z-10 flex flex-col items-start justify-center text-left text-white px-4 h-[75dvh] max-w-[1300px] mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Our Passion is Education and Academic Excellence
-          </h1>
-          <p className="text-base md:text-lg mb-8">
-            Empowering students to pursue their dreams through diverse,
-            high-quality courses that meet the demands of today’s evolving
-            world.
-          </p>
+          <div className="max-w-4xl" >   
+            <h1 className="text-3xl md:text-4xl w-full font-bold mb-4">
+              Our Passion is Education and Academic Excellence
+            </h1>
+            <p className="text-sm md:text-base mb-8 max-w-3xl">
+              Empowering students to pursue their dreams through diverse,
+              high-quality courses that meet the demands of today’s evolving
+              world.
+            </p>
+          </div>
           <Link
             to={"/about"}
-            className="bg-yellow-500 hover:bg-yellow-600 text-white py-3 px-6 rounded font-semibold text-lg flex justify-center items-center gap-2"
+            className="bg-yellow-500 hover:bg-yellow-600 text-white py-3 px-6 rounded font-semibold text-base flex justify-center items-center gap-2"
           >
             <p>Learn more </p>
             <GoArrowRight className="h-7 w-7" />
@@ -105,6 +108,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <TestimonialsSlider />
     </>
   );
 };
