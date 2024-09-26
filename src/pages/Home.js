@@ -29,7 +29,7 @@ const Home = () => {
         {/* Background Image */}
         <div className="absolute inset-0 h-[75dvh]">
           <img
-            src="/hero_new.jpg"
+            src="/heroImage.jpg"
             alt="Solar Panels"
             className="w-full h-full object-cover"
           />
@@ -80,7 +80,7 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-20 ">
             <div className="flex justify-center items-center">
               <img
-                src="courses-1.jpg"
+                src="course1.png"
                 alt="Courses"
                 className="w-full lg:w-3/4 h-64 object-cover rounded"
               />
@@ -108,7 +108,7 @@ const Home = () => {
               <div>
                 <button>
                   <Link
-                    to={"/services"}
+                    to={"/course"}
                     className="bg-yellow-500 mt-2 hover:bg-yellow-600 text-white py-2 px-5 text-base rounded font-semibold  flex justify-center items-center gap-2"
                   >
                     <p>Learn more </p>
@@ -120,7 +120,7 @@ const Home = () => {
 
             <div className="flex justify-center items-center">
               <img
-                src="courses-2.jpg"
+                src="course2.png"
                 alt="University Campus"
                 className="w-full lg:w-3/4 h-64 object-cover rounded-lg"
               />

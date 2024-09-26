@@ -18,7 +18,7 @@ function App() {
         <div className="flex-grow  w-full">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
+            <Route path="/course" element={<Services />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
