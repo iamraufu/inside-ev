@@ -401,7 +401,7 @@ const AboutUs = () => {
     {
       title: "trainer2",
       state: false,
-    }
+    },
   ]);
   const handleViewMore = (val) => {
     console.log(val);
@@ -412,7 +412,7 @@ const AboutUs = () => {
     );
   };
 
-  console.log({isExpanded});
+  console.log({ isExpanded });
 
   return (
     <>
@@ -459,7 +459,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      <div className="mx-auto max-w-[1300px] px-8 py-24 space-y-10 text-justify">
+      {/* <div className="mx-auto max-w-[1300px] px-8 py-24 space-y-10 text-justify">
         <h2>Zweck und Ziele von inside e.V.</h2>
 
         <h3 className="font-bold">1. Förderung der Bildung und Wissenschaft</h3>
@@ -504,6 +504,84 @@ const AboutUs = () => {
           entscheidet der Vorstand.
         </p>
         <p>Stand: 4. Juni 2007</p>
+      </div> */}
+
+      <div className="max-w-[1300px] mx-auto p-9">
+        {/* Title */}
+        <h1 className="text-2xl font-bold mb-3  text-center">
+          Zweck und Ziele von inside e.V.
+        </h1>
+        <div className="w-28 mb-8 bg-amber-500 h-1 rounded-full mx-auto"></div>
+
+        {/* Section 1 */}
+        <section className="mb-8">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4">
+            1. Förderung der Bildung und Wissenschaft
+          </h2>
+          <p className="text-sm text-justify mb-4">
+            Mit unseren Bildungsveranstaltungen und –maßnahmen wollen wir zur
+            Gestaltung einer zukunftsfähigen Gesellschaft beitragen. Hierbei
+            arbeiten wir eng mit Kooperationspartnern im In- und Ausland
+            zusammen. Schwerpunkte unserer Tätigkeit bilden die inside Events -
+            Bildungsveranstaltungen zu Kultur, Wirtschaft und zur Politik -
+            sowie Praxisprojekte vor allem für Studierende zu aktuellen Themen
+            wie beispielsweise den Erneuerbaren Energien.
+          </p>
+          <p className="text-sm text-justify">
+            Wir unterstützen den Aufbau innovativer Studienkonzepte und
+            initiieren Partnerschaften zwischen Hochschul- und
+            Forschungseinrichtungen des In- und Auslands.
+          </p>
+        </section>
+
+        {/* Section 2 */}
+        <section className="mb-8">
+          <h2 className="text-xl md:text-2xl font-semibold mb-4">
+            2. Unterstützung für Studierende und Wissenschaftler
+          </h2>
+          <p className="text-base text-justify mb-4">
+            Unser Verein bietet für Studierende und Wissenschaftler in Berlin
+            ausgewählte Betreuung und Informationen in folgenden Segmenten an:
+          </p>
+          <div className="ml-7">
+            <ul className="list-disc list-outside marker:text-orange-500  mb-4 space-y-2">
+              <li className="text-sm text-justify">
+                Studienstart: Informationen und Unterstützung bei alltäglichen
+                Fragen wie Wohnen, Versicherungen und Behörden
+              </li>
+              <li className="text-sm text-justify">
+                Studienbegleitung: Stipendieninformationen und –beratung, inside
+                Events mit Exkursionen zu kulturellen und historischen Stätten,
+                in Unternehmen sowie wissenschaftliche Einrichtungen
+              </li>
+              <li className="text-sm text-justify">
+                Berufsvorbereitung: Bewerbungstraining sowie Durchführung von
+                Praktika und Praxisprojekten.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* Structure Section */}
+        <section>
+          <h2 className="text-xl md:text-2xl font-semibold mb-4">Struktur des Vereins</h2>
+          <p className="text-sm text-justify mb-4">
+            Inside e.V. ist ein gemeinnütziger Förderverein mit Sitz in Berlin.
+            Die Vereinsarbeit wird durch ein Vorstandsteam, das gegenwärtig aus
+            fünf Mitgliedern besteht, organisiert und geleitet. Das Kuratorium
+            unterstützt den Verein und besteht aus Persönlichkeiten aus Politik,
+            Wirtschaft und Wissenschaft.
+          </p>
+          <p className="text-sm text-justify mb-4">
+            Mitglied im Verein kann auf Antrag jede natürliche oder juristische
+            Person im In- und Ausland werden. Über die Aufnahme als
+            ordentliches, förderndes oder studentisches Mitglied entscheidet der
+            Vorstand.
+          </p>
+          <p className="text-sm mt-10  text-right italic">
+            Stand: 4. Juni 2007
+          </p>
+        </section>
       </div>
 
       <div className="bg-gray-800 text-white min-h-screen p-10">
@@ -529,52 +607,65 @@ const AboutUs = () => {
                 {trainer.name}
               </h2>
 
-                  <div className={`transition-max-height ease-in-out duration-500 overflow-hidden ${isExpanded.filter(item => item.title === trainer.id)[0].state ? 'max-h-full' : 'max-h-96'}`} >
+              <div
+                className={`transition-max-height ease-in-out duration-500 overflow-hidden ${
+                  isExpanded.filter((item) => item.title === trainer.id)[0]
+                    .state
+                    ? "max-h-full"
+                    : "max-h-96"
+                }`}
+              >
+                <section className="mb-6">
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    Education
+                  </h3>
+                  <div className="w-12 mb-3  bg-amber-500 h-[2px] rounded-full"></div>
+                  <ul className=" list-inside text-gray-200 space-y-2">
+                    {trainer.details.map((edu, idx) => (
+                      <li className="mb-4" key={idx}>
+                        <p className="font-semibold text-white mb-2">
+                          {edu.year}
+                        </p>
+                        <p className="font-light text-sm text-gray-300">
+                          {edu.description}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+                <section className="mb-6">
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    Research
+                  </h3>
+                  <div className="w-12 mb-3  bg-amber-500 h-[2px] rounded-full"></div>
+                  <ul className=" text-gray-700 space-y-4">
+                    {trainer.research.map((exp, idx) => (
+                      <li className="italic font-light text-white" key={idx}>
+                        {exp.title}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
 
-                  <section className="mb-6">
-                    <h3 className="text-xl font-semibold text-white mb-3">
-                      Education
-                    </h3>
-                    <div className="w-12 mb-3  bg-amber-500 h-[2px] rounded-full"></div>
-                    <ul className=" list-inside text-gray-200 space-y-2">
-                      {trainer.details.map((edu, idx) => (
-                        <li className="mb-4" key={idx}>
-                          <p className="font-semibold text-white mb-2">{edu.year}</p>
-                          <p className="font-light text-sm text-gray-300">{edu.description}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-                    <section className="mb-6">
-                      <h3 className="text-xl font-semibold text-white mb-3">
-                        Research
-                      </h3>
-                      <div className="w-12 mb-3  bg-amber-500 h-[2px] rounded-full"></div>
-                      <ul className=" text-gray-700 space-y-4">
-                        {trainer.research.map((exp, idx) => (
-                          <li className="italic font-light text-white" key={idx}>{exp.title}</li>
-                        ))}
-                      </ul>
-                    </section>
+                <section className="mb-6">
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    Thesis Supervision
+                  </h3>
 
-                    <section className="mb-6">
-                      <h3 className="text-xl font-semibold text-white mb-3">
-                        Thesis Supervision
-                      </h3>
-                      
-                      <ul className=" text-white space-y-2">
-                        {trainer.thesisSupervision.map((item, idx) => (
-                          <li className="text-sm" key={idx}>
-                            <div className="flex justify-center items-start gap-3" >
-                              <div className="h-[2px] bg-amber-600 w-4 mt-2"></div>
-                              <p className="flex-1">{item.title}</p>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </section>
-                  </div>
-              {!isExpanded.filter(item => item.title === trainer.id)[0].state && (
+                  <ul className=" text-white space-y-2">
+                    {trainer.thesisSupervision.map((item, idx) => (
+                      <li className="text-sm" key={idx}>
+                        <div className="flex justify-center items-start gap-3">
+                          <div className="h-[2px] bg-amber-600 w-4 mt-2"></div>
+                          <p className="flex-1">{item.title}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              </div>
+              {!isExpanded.filter((item) => item.title === trainer.id)[0]
+                .state && (
                 <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-gray-900 to-transparent flex items-end justify-end m-4">
                   <button
                     className="font-medium text-amber-500 px-4 py-2 rounded-md mt-2"
@@ -584,7 +675,6 @@ const AboutUs = () => {
                   </button>
                 </div>
               )}
-
             </div>
           ))}
         </div>
