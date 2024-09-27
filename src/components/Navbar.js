@@ -35,7 +35,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="text-slate-800 px-4">
+    <nav className="text-slate-800 px-4 sticky top-0 left-0 bg-white z-50 shadow-sm">
       <div className="max-w-[1300px] mx-auto w-full flex justify-between items-center">
         <div className="text-xl font-bold p-4">
           <NavLink to="/">Logo</NavLink>
@@ -75,7 +75,7 @@ const Navbar = () => {
         <div
           className={`fixed top-0 left-0 h-full bg-white shadow-lg transform ${
             isOpen ? 'translate-x-0' : '-translate-x-full'
-          } transition-transform duration-300 ease-in-out md:hidden w-64 z-30`}
+          } transition-transform duration-300 ease-in-out md:hidden w-64 z-40`}
         >
           <h2 className="px-6 py-5">Menu</h2>
           <ul className="flex flex-col items-start pl-6">

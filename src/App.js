@@ -13,7 +13,7 @@ import Footer from './pages/Footer';
 function App() {
   return (
     <AuthProvider>
-     <div className="flex flex-col min-h-screen ">
+     <div className="flex flex-col min-h-screen relative">
         <Navbar />
         <div className="flex-grow  w-full">
           <Routes>

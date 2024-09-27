@@ -75,7 +75,8 @@ const TestimonialsSlider = () => {
   return (
     <div className="bg-gray-100 py-16">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-center text-3xl font-bold mb-8">What Our Students Say</h2>
+        <h2 className="text-center text-3xl font-bold mb-4">What Our Students Say</h2>
+        <div className="w-24 my-4 bg-amber-500 h-1.5 rounded-full mx-auto"></div>
         <Slider {...settings}>
           {testimonials.map((testimonial, index) => (
             <div key={index} className="p-8">

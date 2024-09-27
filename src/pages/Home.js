@@ -4,24 +4,24 @@ import TestimonialsSlider from "../components/TestimonialsSlider";
 import Contact from "./Contact";
 
 const Home = () => {
-  const HoverCard = ({ image, title, description }) => {
-    return (
-      <div className="group relative w-70 h-70 bg-gray-200 overflow-hidden  shadow-lg cursor-pointer">
-        {/* Background Image */}
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-        />
+  // const HoverCard = ({ image, title, description }) => {
+  //   return (
+  //     <div className="group relative w-70 h-70 bg-gray-200 overflow-hidden  shadow-lg cursor-pointer">
+  //       {/* Background Image */}
+  //       <img
+  //         src={image}
+  //         alt={title}
+  //         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+  //       />
 
-        {/* Overlay (Shown on Hover) */}
-        <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <h3 className="text-white text-2xl font-bold mb-4">{title}</h3>
-          <p className="text-white px-4">{description}</p>
-        </div>
-      </div>
-    );
-  };
+  //       {/* Overlay (Shown on Hover) */}
+  //       <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+  //         <h3 className="text-white text-2xl font-bold mb-4">{title}</h3>
+  //         <p className="text-white px-4">{description}</p>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   return (
     <>
@@ -42,6 +42,7 @@ const Home = () => {
             <h1 className="text-3xl md:text-4xl w-full font-bold mb-4">
               Our Passion is Education and Academic Excellence
             </h1>
+            <div className="w-24 my-4 bg-yellow-500 h-1.5 rounded-full"></div>
             <p className="text-sm md:text-base mb-8 max-w-3xl">
               Empowering students to pursue their dreams through diverse,
               high-quality courses that meet the demands of today’s evolving
@@ -87,9 +88,10 @@ const Home = () => {
             </div>
 
             <div className="text-center flex flex-col justify-center">
-              <h3 className="text-2xl font-bold mb-4">
+              <h3 className="text-2xl font-bold">
                 Why Choose Our Courses?
               </h3>
+              <div className="w-24 my-4 bg-amber-400 h-2 rounded-full mx-auto"></div>
               <p className="text-gray-600 text-sm mb-4  md:w-3/4 mx-auto">
                 Our university provides a comprehensive selection of courses
                 across various disciplines. Gain access to world-class
@@ -99,7 +101,8 @@ const Home = () => {
             </div>
 
             <div className="text-center flex flex-col justify-center">
-              <h3 className="text-2xl font-bold mb-4">Our Services</h3>
+              <h3 className="text-2xl font-bold">Our Services</h3>
+              <div className="w-16 my-4 bg-amber-400 h-2 rounded-full mx-auto"></div>
               <p className="text-gray-600 text-sm mb-4 md:w-3/4  mx-auto">
                 We offer personalized support for students, including academic
                 counseling, career guidance, and access to industry partnerships
@@ -128,7 +131,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center min-h-[50dvh]">
+      {/* <div className="flex justify-center items-center min-h-[50dvh]">
         <HoverCard
           image="https://via.placeholder.com/300"
           title="Our Passion"
@@ -144,7 +147,7 @@ const Home = () => {
           title="Our Passion"
           description="SSS Course"
         />
-      </div>
+      </div> */}
       <TestimonialsSlider />
       <Contact />
     </>

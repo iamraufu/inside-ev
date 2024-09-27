@@ -23,7 +23,8 @@ const Contact = () => {
   return (
     <div id='contact' className="flex items-center justify-center min-h-[80dvh] bg-white ">
       <div className="w-full px-6 pb-10 rounded max-w-[1100px] mx-auto">
-        <h1 className="text-3xl font-semibold text-center text-black mb-8">Contact Us</h1>
+        <h1 className="text-3xl font-semibold text-center text-black">Contact Us</h1>
+        <div className="w-24 my-4 bg-amber-500 h-1.5 rounded-full mx-auto mb-8"></div>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 text-sm gap-6">
             <div className="col-span-1">
