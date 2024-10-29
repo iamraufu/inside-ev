@@ -61,10 +61,10 @@ const Services = () => {
       detailsLink: "#", // Link to more details about the trainer
     },
     {
-      name: "Dr. Jane Doe",
+      name: "Talha Ahmad",
       image: "/trainers/trainer2.png", // Replace with the actual image URL
       shortInfo:
-        "Expert in smart grids and sustainable energy solutions, with extensive teaching experience.",
+        "Industrial Professional with expertise in domains of electrical power engineering & renewable energies",
       detailsLink: "#", // Link to more details about the trainer
     },
     // Add more trainers as needed
