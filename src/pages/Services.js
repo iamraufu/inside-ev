@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../firebase/firebase';
+import toast, { Toaster } from "react-hot-toast";
 
 const Services = () => {
   const objectives = [
@@ -73,6 +76,7 @@ const Services = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -83,14 +87,28 @@ const Services = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
+    if (!formData.name.trim() || !formData.email.trim()) {
+      toast.error("All fields are required.");
+      return;
+    }
+    try {
+      // Add form data to Firestore
+      await addDoc(collection(db, "register"), {...formData, date: new Date(), type: "register"});
+      toast.success("Message sent successfully!");
+      setFormData({ name: '', email: '', message: '' }); // Clear the form
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      toast.error("Failed to send message, please try again.");
+    }
   };
   return (
     <>
       {/* Hero Section */}
       <div className="relative bg-gray-800">
+      <Toaster position="top-right" reverseOrder={false} />
         {/* Background Image */}
         <div className="absolute inset-0 h-[70dvh]">
           <img

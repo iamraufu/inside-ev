@@ -8,6 +8,8 @@ import Navbar from './components/Navbar';
 import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
 import Footer from './pages/Footer';
+import SignIn from './pages/SignIn';
+import ViewData from './pages/ViewData';
 // import PrivateOutlet from './components/PrivateOutlet';
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/course" element={<Services />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/view-data" element={<ViewData />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </div>

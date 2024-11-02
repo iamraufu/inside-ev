@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../firebase/firebase';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,13 +19,30 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
+
+     // Validate form fields
+  if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+    toast.error("All fields are required.");
+    return;
+  }
+
+    try {
+      // Add form data to Firestore
+      await addDoc(collection(db, "contacts"), {...formData, date: new Date(), type: "contact"});
+      toast.success("Message sent successfully!");
+      setFormData({ name: '', email: '', message: '' }); // Clear the form
+    } catch (error) {
+      console.error("Error adding document: ", error);
+      toast.error("Failed to send message, please try again.");
+    }
   };
 
   return (
     <div id='contact' className="flex items-center justify-center min-h-[80dvh] bg-white ">
+      <Toaster position="top-right" reverseOrder={false} />
       <div className="w-full px-6 pb-10 rounded max-w-[1100px] mx-auto">
         <h1 className="text-3xl font-semibold text-center text-black">Contact Us</h1>
         <div className="w-24 my-4 bg-amber-500 h-1.5 rounded-full mx-auto mb-8"></div>
