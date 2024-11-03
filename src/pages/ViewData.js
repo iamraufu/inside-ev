@@ -25,11 +25,11 @@ const ViewData = () => {
             let q = query(collection(db, type), orderBy("date", "desc"));
 
             // Apply date range filter if both start and end dates are selected
+            const start = new Date(startDate + "T00:00:00Z");
+            const end = new Date(endDate + "T23:59:59Z");
             if (startDate && endDate) {
-                const start = new Date(startDate);
-                const end = new Date(endDate);
-                start.setHours(0, 0, 0, 0); // Include the entire end day
-                end.setHours(23, 59, 59, 999); // Include the entire end day
+                // start.setHours(0, 0, 0, 0); // Include the entire end day
+                // end.setHours(23, 59, 59, 999); // Include the entire end day
                 q = query(
                     collection(db, type),
                     where("date", ">=", start),
@@ -43,6 +43,7 @@ const ViewData = () => {
                 id: doc.id,
                 ...doc.data(),
             }));
+            console.log({ data });
             setDocuments(data);
         } catch (error) {
             console.error("Error fetching documents:", error);
@@ -128,6 +129,55 @@ const ViewData = () => {
         document.body.removeChild(link);
     };
 
+    const formatDate = (dateString, timeZone) => {
+        const date = new Date(dateString);
+    
+        // Format for UTC
+        const utcDate = date.toLocaleString("en-GB", {
+            timeZone: "UTC",
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true,
+        });
+    
+        // Format for Local Time Zone
+        const localDate = date.toLocaleString("en-GB", {
+            timeZone,
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: true,
+        });
+    
+        return { utcDate, localDate };
+    };
+
+    const DataRow = ({ entry }) => {
+        console.log({entry});
+        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const { utcDate, localDate } = formatDate(entry.date.seconds * 1000, timeZone);
+
+        return (
+            <tr className="hover:bg-gray-100 transition-colors">
+                <td className="px-6 py-4 border-b">{entry.name}</td>
+                <td className="px-6 py-4 border-b">{entry.email}</td>
+                <td className="px-6 py-4 border-b">{entry.message}</td>
+                <td className="px-6 py-4 border-b">
+                    <div>{utcDate}</div>
+                </td>
+                <td className="px-6 py-4 border-b">
+                    <div>
+                        {timeZone}: {localDate}
+                    </div>
+                </td>
+            </tr>
+        );
+    };
     return (
         <div className="p-4 h-full">
             <div className="max-w-[1300px] mx-auto bg-white rounded-lg shadow-lg p-6">
@@ -217,10 +267,13 @@ const ViewData = () => {
                                         <th className="px-6 py-3 border-b text-left text-lg font-semibold text-white">
                                             Date
                                         </th>
+                                        <th className="px-6 py-3 border-b text-left text-lg font-semibold text-white">
+                                           Local Date
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody className="text-gray-700">
-                                    {currentData.map((doc) => (
+                                    {/* {currentData.map((doc) => (
                                         <tr
                                             key={doc.id}
                                             className="hover:bg-gray-100 transition-colors"
@@ -239,15 +292,12 @@ const ViewData = () => {
                                             <td className="px-6 py-4 border-b">
                                                 {new Date(
                                                     doc.date.seconds * 1000
-                                                ).toLocaleDateString("en-US", {
-                                                    year: "numeric",
-                                                    month: "long",
-                                                    day: "numeric",
-                                                    hour: "2-digit",
-                                                    minute: "2-digit",
-                                                })}
+                                                ).toUTCString()}
                                             </td>
                                         </tr>
+                                    ))} */}
+                                    {currentData.map((entry) => (
+                                        <DataRow key={entry.id} entry={entry} />
                                     ))}
                                 </tbody>
                             </table>
