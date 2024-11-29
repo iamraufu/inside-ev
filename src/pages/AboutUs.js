@@ -2,7 +2,7 @@ import React, { useState } from "react";
 const trainers = [
     {
         id: "trainer1",
-        name: "Dr. Saiful Islam",
+        name: "Saiful Islam",
         image: "/trainers/trainer1.png", // Placeholder for image URL
         details: [
             {
