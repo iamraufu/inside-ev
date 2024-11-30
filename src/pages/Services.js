@@ -89,14 +89,14 @@ const Services = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!formData.name.trim() || !formData.email.trim()) {
       toast.error("All fields are required.");
       return;
     }
     try {
       // Add form data to Firestore
-      await addDoc(collection(db, "register"), {...formData, date: new Date(), type: "register"});
+      await addDoc(collection(db, "register"), { ...formData, date: new Date(), type: "register" });
       toast.success("Message sent successfully!");
       setFormData({ name: '', email: '', message: '' }); // Clear the form
     } catch (error) {
@@ -110,46 +110,46 @@ const Services = () => {
       id: "1",
       name: "Prof. Dr. Michael Hartmann",
       image: "/members/member1.png",
-      shortInfo: 'Academic Director of SRH University of Applied Sciences, Heidelberg; Department of School of Technology and Architecture (TEAC)'
+      shortInfo: "Academic Director of SRH University of Applied Sciences, Heidelberg; Department of School of Technology and Architecture (TEAC)",
     },
     {
       id: "2",
       name: "Dr. Jörg Röseler, Vorsitzender",
       image: "/members/member1.png",
-      shortInfo: ''
+      shortInfo: "Chairman of the Board, experienced in corporate governance and strategic planning.",
     },
     {
       id: "3",
       name: "Dr. Tilmann Hickel",
       image: "/members/member1.png",
-      shortInfo: ''
+      shortInfo: "Senior Research Scientist at the Max Planck Institute for Iron Research, specializing in materials science.",
     },
     {
       id: "4",
       name: "Dr. Klaus-Ulrich Neumann",
       image: "/members/member1.png",
-      shortInfo: ''
+      shortInfo: "Expert in environmental technology and renewable energy systems.",
     },
     {
       id: "5",
       name: "Prof. Dr. Gudrum Kammasch",
       image: "/members/member1.png",
-      shortInfo: ''
+      shortInfo: "Professor of Life Sciences with a focus on biotechnology and sustainable development.",
     },
     {
       id: "6",
       name: "Dr. André Prößdorf",
       image: "/members/member1.png",
-      shortInfo: ''
+      shortInfo: "Consultant and lecturer in applied mathematics and computational mechanics.",
     },
-  ]
+  ];
 
 
   return (
     <>
       {/* Hero Section */}
       <div className="relative bg-gray-800">
-      <Toaster position="top-right" reverseOrder={false} />
+        <Toaster position="top-right" reverseOrder={false} />
         {/* Background Image */}
         <div className="absolute inset-0 h-[70dvh]">
           <img
@@ -195,9 +195,9 @@ const Services = () => {
 
         <div className="max-w-[1300px] mx-auto flex justify-center  flex-wrap gap-8">
           {objectives.map((item, index) => (
-            <div 
-            key={index}
-            className="bg-gray-50 p-6 shadow rounded w-[400px]  border-t-4 border-emerald-500 hover:bg-gray-100 transition duration-300 transform hover:-translate-y-2 cursor-pointer">
+            <div
+              key={index}
+              className="bg-gray-50 p-6 shadow rounded w-[400px]  border-t-4 border-emerald-500 hover:bg-gray-100 transition duration-300 transform hover:-translate-y-2 cursor-pointer">
               <h3 className="text-xl font-bold mb-4 text-slate-900">
                 {item.title}
               </h3>
@@ -236,26 +236,10 @@ const Services = () => {
       </div>
 
       <div className="py-16 px-8 bg-gray-800 text-white">
-          <h2 className="text-2xl font-bold mb-5">Members</h2>
-          <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-8">
-          {members.map((member, index) => (
-            <div
-              key={index}
-              className="bg-gray-900 p-6 shadow rounded-lg w-[250px] text-center"
-            >
-              <img
-                src={member.image}
-                alt={`${member.name}`}
-                className=" w-1/2  rounded-full object-cover mx-auto border-2 border-amber-100 mb-5"
-              />
-              <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-              <p className="mb-4 text-sm italic">{member.shortInfo}</p>
-            </div>
-          ))}
-        </div>
-        <h2 className="text-3xl font-bold my-10 text-center">
+        <h2 className="text-3xl font-bold my-2 text-center">
           Trainer Information
         </h2>
+        <div className="w-24 my-6 bg-amber-500 h-1.5 rounded-full mx-auto"></div>
         <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-8">
           {trainers.map((trainer, index) => (
             <div
@@ -268,7 +252,7 @@ const Services = () => {
                 className=" w-1/2  rounded-full object-cover mx-auto border-2 border-amber-100 mb-5"
               />
               <h3 className="text-xl font-semibold mb-2">{trainer.name}</h3>
-              <p className="mb-4 text-sm italic">{trainer.shortInfo}</p>
+              <p className="mb-4 text-sm italic opacity-75">{trainer.shortInfo}</p>
               <Link
                 to="/about"
                 className="inline-block bg-amber-500 text-white font-medium px-4 py-2 rounded hover:bg-amber-400 transition duration-300 mt-4"
@@ -278,6 +262,25 @@ const Services = () => {
             </div>
           ))}
         </div>
+        <h2 className="text-3xl font-bold my-4 mt-8 text-center">Members</h2>
+        <div className="w-24 my-4 bg-amber-500 h-1.5 rounded-full mx-auto"></div>
+        <div className="max-w-4xl mx-auto flex flex-wrap justify-center mb-10 gap-8">
+          {members.map((member, index) => (
+            <div
+              key={index}
+              className="bg-gray-900 p-6 shadow rounded-lg w-[250px] text-center"
+            >
+              <img
+                src={member.image}
+                alt={`${member.name}`}
+                className=" w-1/2  rounded-full object-cover mx-auto border-2 border-amber-100 mb-5"
+              />
+              <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
+              <p className="mb-4 text-sm italic opacity-75">{member.shortInfo}</p>
+            </div>
+          ))}
+        </div>
+
       </div>
 
       {/* contact */}
