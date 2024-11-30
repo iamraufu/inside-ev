@@ -11,7 +11,6 @@ const Login = () => {
       let location = useLocation();
       let from = location.state?.from?.pathname || "/";
       const { user, setUser } = useAuth();
-      console.log(user)
 
       // Added later for error debugging
       useEffect(() => {
@@ -27,7 +26,7 @@ const Login = () => {
             const fetchData = async () => {
                   try {
                         const tempUser = userData.find(u => u.email === formData.email && u.password === formData.password) || {}
-                        console.log(tempUser)
+                        
                         if (tempUser.email) {
                               setUser(tempUser)
                               setLoginError('')

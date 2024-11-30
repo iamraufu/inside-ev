@@ -43,7 +43,7 @@ const ViewData = () => {
                 id: doc.id,
                 ...doc.data(),
             }));
-            console.log({ data });
+            
             setDocuments(data);
         } catch (error) {
             console.error("Error fetching documents:", error);
@@ -158,7 +158,7 @@ const ViewData = () => {
     };
 
     const DataRow = ({ entry }) => {
-        console.log({entry});
+        
         const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
         const { utcDate, localDate } = formatDate(entry.date.seconds * 1000, timeZone);
 

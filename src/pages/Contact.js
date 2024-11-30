@@ -21,7 +21,6 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
 
      // Validate form fields
   if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {

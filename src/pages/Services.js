@@ -89,7 +89,7 @@ const Services = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    
     if (!formData.name.trim() || !formData.email.trim()) {
       toast.error("All fields are required.");
       return;
@@ -104,6 +104,47 @@ const Services = () => {
       toast.error("Failed to send message, please try again.");
     }
   };
+
+  const members = [
+    {
+      id: "1",
+      name: "Prof. Dr. Michael Hartmann",
+      image: "/members/member1.png",
+      shortInfo: 'Academic Director of SRH University of Applied Sciences, Heidelberg; Department of School of Technology and Architecture (TEAC)'
+    },
+    {
+      id: "2",
+      name: "Dr. Jörg Röseler, Vorsitzender",
+      image: "/members/member1.png",
+      shortInfo: ''
+    },
+    {
+      id: "3",
+      name: "Dr. Tilmann Hickel",
+      image: "/members/member1.png",
+      shortInfo: ''
+    },
+    {
+      id: "4",
+      name: "Dr. Klaus-Ulrich Neumann",
+      image: "/members/member1.png",
+      shortInfo: ''
+    },
+    {
+      id: "5",
+      name: "Prof. Dr. Gudrum Kammasch",
+      image: "/members/member1.png",
+      shortInfo: ''
+    },
+    {
+      id: "6",
+      name: "Dr. André Prößdorf",
+      image: "/members/member1.png",
+      shortInfo: ''
+    },
+  ]
+
+
   return (
     <>
       {/* Hero Section */}
@@ -153,8 +194,10 @@ const Services = () => {
         </p>
 
         <div className="max-w-[1300px] mx-auto flex justify-center  flex-wrap gap-8">
-          {objectives.map((item) => (
-            <div className="bg-gray-50 p-6 shadow rounded w-[400px]  border-t-4 border-emerald-500 hover:bg-gray-100 transition duration-300 transform hover:-translate-y-2 cursor-pointer">
+          {objectives.map((item, index) => (
+            <div 
+            key={index}
+            className="bg-gray-50 p-6 shadow rounded w-[400px]  border-t-4 border-emerald-500 hover:bg-gray-100 transition duration-300 transform hover:-translate-y-2 cursor-pointer">
               <h3 className="text-xl font-bold mb-4 text-slate-900">
                 {item.title}
               </h3>
@@ -193,7 +236,24 @@ const Services = () => {
       </div>
 
       <div className="py-16 px-8 bg-gray-800 text-white">
-        <h2 className="text-3xl font-bold mb-10 text-center">
+          <h2 className="text-2xl font-bold mb-5">Members</h2>
+          <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-8">
+          {members.map((member, index) => (
+            <div
+              key={index}
+              className="bg-gray-900 p-6 shadow rounded-lg w-[250px] text-center"
+            >
+              <img
+                src={member.image}
+                alt={`${member.name}`}
+                className=" w-1/2  rounded-full object-cover mx-auto border-2 border-amber-100 mb-5"
+              />
+              <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
+              <p className="mb-4 text-sm italic">{member.shortInfo}</p>
+            </div>
+          ))}
+        </div>
+        <h2 className="text-3xl font-bold my-10 text-center">
           Trainer Information
         </h2>
         <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-8">

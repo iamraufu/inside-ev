@@ -427,15 +427,12 @@ const AboutUs = () => {
         },
     ]);
     const handleViewMore = (val) => {
-        console.log(val);
         setIsExpanded((prev) =>
             prev.map((item) =>
                 item.title === val ? { ...item, state: !item.state } : item
             )
         );
     };
-
-    console.log({ isExpanded });
 
     return (
         <>
