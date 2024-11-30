@@ -39,7 +39,9 @@ const Navbar = () => {
     <nav className="text-slate-800 px-4 sticky top-0 left-0 bg-white z-50 shadow-sm">
       <div className="max-w-[1300px] mx-auto w-full flex justify-between items-center">
         <div className="text-xl font-bold p-4">
-          <NavLink to="/"><img src={logo} alt="logo" className='w-16' /></NavLink>
+          <NavLink 
+          onClick={() => { window.scrollTo(0, 0) }}
+          to="/"><img src={logo} alt="logo" className='w-16' /></NavLink>
         </div>
 
         {/* Hamburger Icon for smaller screens */}
@@ -60,7 +62,9 @@ const Navbar = () => {
                   : "border-white"
               } cursor-pointer border-b-4 hover:border-yellow-500`}
             >
-              <NavLink to={item.path} end className="block p-4">
+              <NavLink 
+              onClick={() => { window.scrollTo(0, 0); }}
+              to={item.path} end className="block p-4">
                 {item.name}
               </NavLink>
             </li>
