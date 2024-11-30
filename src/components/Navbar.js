@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { CiMenuBurger } from 'react-icons/ci';
 import { AiOutlineClose } from 'react-icons/ai';
+import logo from '../images/logo.png'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +39,7 @@ const Navbar = () => {
     <nav className="text-slate-800 px-4 sticky top-0 left-0 bg-white z-50 shadow-sm">
       <div className="max-w-[1300px] mx-auto w-full flex justify-between items-center">
         <div className="text-xl font-bold p-4">
-          <NavLink to="/">Logo</NavLink>
+          <NavLink to="/"><img src={logo} alt="logo" className='w-16' /></NavLink>
         </div>
 
         {/* Hamburger Icon for smaller screens */}
