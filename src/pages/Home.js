@@ -2,6 +2,7 @@ import { GoArrowRight } from "react-icons/go";
 import { Link } from "react-router-dom";
 import TestimonialsSlider from "../components/TestimonialsSlider";
 import Contact from "./Contact";
+import logo from '../images/logo.png'
 
 const Home = () => {
   // const HoverCard = ({ image, title, description }) => {
@@ -81,9 +82,10 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-20 ">
             <div className="flex justify-center items-center">
               <img
-                src="course1.png"
+                // src="course1.png"
+                src={logo}
                 alt="Courses"
-                className="w-full lg:w-3/4 h-64 object-cover rounded"
+                className="w-full object-cover rounded"
               />
             </div>
 
@@ -123,9 +125,9 @@ const Home = () => {
 
             <div className="flex justify-center items-center">
               <img
-                src="course2.png"
-                alt="University Campus"
-                className="w-full lg:w-3/4 h-64 object-cover rounded-lg"
+                src={logo}
+                alt="Courses"
+                className="w-full object-cover rounded"
               />
             </div>
           </div>

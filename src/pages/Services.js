@@ -57,7 +57,7 @@ const Services = () => {
 
   const trainers = [
     {
-      name: "Md Saiful Islam",
+      name: "Saiful Islam",
       image: "/trainers/trainer1.png", // Replace with the actual image URL
       shortInfo:
         "PhD student at Otto-von-Guericke-University with experience in renewable energy systems and AI.",
@@ -111,36 +111,84 @@ const Services = () => {
       name: "Prof. Dr. Michael Hartmann",
       image: "/members/member1.png",
       shortInfo: "Academic Director of SRH University of Applied Sciences, Heidelberg; Department of School of Technology and Architecture (TEAC)",
+      designation: "Geschäftsführender Vorstand"
     },
     {
       id: "2",
       name: "Dr. Jörg Röseler, Vorsitzender",
-      image: "/members/member1.png",
+      image: "",
       shortInfo: "Chairman of the Board, experienced in corporate governance and strategic planning.",
+      designation: "Vorstand"
     },
     {
       id: "3",
       name: "Dr. Tilmann Hickel",
-      image: "/members/member1.png",
+      image: "",
       shortInfo: "Senior Research Scientist at the Max Planck Institute for Iron Research, specializing in materials science.",
+      designation: "Vorstand"
     },
     {
       id: "4",
       name: "Dr. Klaus-Ulrich Neumann",
-      image: "/members/member1.png",
+      image: "",
       shortInfo: "Expert in environmental technology and renewable energy systems.",
+      designation: "Kuratorium"
     },
     {
       id: "5",
       name: "Prof. Dr. Gudrum Kammasch",
-      image: "/members/member1.png",
+      image: "",
       shortInfo: "Professor of Life Sciences with a focus on biotechnology and sustainable development.",
+      designation: "Kuratorium"
     },
     {
       id: "6",
       name: "Dr. André Prößdorf",
-      image: "/members/member1.png",
+      image: "",
       shortInfo: "Consultant and lecturer in applied mathematics and computational mechanics.",
+      designation: "Vorstand"
+    },
+    {
+      id: "7",
+      name: "Dr. h.c. Hinrich Enderlein",
+      image: "",
+      shortInfo: "Vorsitzender",
+      designation: "Kuratorium"
+    },
+    {
+      id: "8",
+      name: "Sabine Knapp-Lohmann",
+      image: "",
+      shortInfo: "",
+      designation: "Kuratorium"
+    },
+    {
+      id: "9",
+      name: "Ursula Leyk",
+      image: "",
+      shortInfo: "",
+      designation: "Kuratorium"
+    },
+    {
+      id: "10",
+      name: "Stefan Waander",
+      image: "",
+      shortInfo: "Techniker-Krankenkasse",
+      designation: "Kuratorium"
+    },
+    {
+      id: "11",
+      name: "Dr. Anke Schwendel",
+      image: "",
+      shortInfo: "",
+      designation: "Kuratorium"
+    },
+    {
+      id: "12",
+      name: "Dr.-Ing. Jules Bertrand Njinkeu",
+      image: "",
+      shortInfo: "",
+      designation: "Vorstand"
     },
   ];
 
@@ -247,9 +295,9 @@ const Services = () => {
               className="bg-gray-900 p-6 shadow rounded-lg w-[400px] text-center"
             >
               <img
-                src={trainer.image}
-                alt={`${trainer.name}`}
-                className=" w-1/2  rounded-full object-cover mx-auto border-2 border-amber-100 mb-5"
+              src={trainer.image}
+              alt={`${trainer.name}`}
+              className=" w-1/2  rounded-full object-cover mx-auto border-2 border-amber-100 mb-5"
               />
               <h3 className="text-xl font-semibold mb-2">{trainer.name}</h3>
               <p className="mb-4 text-sm italic opacity-75">{trainer.shortInfo}</p>
@@ -270,12 +318,16 @@ const Services = () => {
               key={index}
               className="bg-gray-900 p-6 shadow rounded-lg w-[250px] text-center"
             >
+              {
+                member?.image &&
               <img
-                src={member.image}
-                alt={`${member.name}`}
-                className=" w-1/2  rounded-full object-cover mx-auto border-2 border-amber-100 mb-5"
+              src={member.image}
+              alt={`${member.name}`}
+              className=" w-1/2  rounded-full object-cover mx-auto border-2 border-amber-100 mb-5"
               />
+            }
               <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
+              <small className="text-sm">{member.designation}</small>
               <p className="mb-4 text-sm italic opacity-75">{member.shortInfo}</p>
             </div>
           ))}
