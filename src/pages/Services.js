@@ -117,14 +117,14 @@ const Services = () => {
       id: "2",
       name: "Dr. Jörg Röseler, Vorsitzender",
       image: "",
-      shortInfo: "Chairman of the Board, experienced in corporate governance and strategic planning.",
+      shortInfo: "",
       designation: "Vorstand"
     },
     {
       id: "3",
       name: "Dr. Tilmann Hickel",
       image: "",
-      shortInfo: "Senior Research Scientist at the Max Planck Institute for Iron Research, specializing in materials science.",
+      shortInfo: "",
       designation: "Vorstand"
     },
     {
