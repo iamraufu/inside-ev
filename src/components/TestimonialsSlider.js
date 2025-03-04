@@ -6,29 +6,23 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 
 const testimonials = [
   {
-    name: 'John Doe',
-    position: 'Software Engineer at XYZ Ltd.',
-    message: 'The courses offered by the university have been instrumental in shaping my career.',
+    name: 'Seyed Hamid Seyed Hosseini',
+    position: 'Master’s Student and working student at SRH University of Applied Sciences',
+    message: 'I have attended the course In-Depth Knowledge of Renewable Power – Photovoltaics or Decentralized Energy Management Systems and found the content to be extremely insightful. The course inspired me to explore research in these topics. I also had the opportunity to learn alongside Saiful Islam and Muhammad Talha from Vattenfall, which further deepened my interest in energy management, technical design, and simulation in this field.',
     image: 'https://robohash.org/1',
   },
   {
-    name: 'John Doe',
-    position: 'Software Engineer at XYZ Ltd.',
-    message: 'The courses offered by the university have been instrumental in shaping my career.',
+    name: 'Suraj Shetty',
+    position: 'Student, Engineering and Sustainable Technology Management - Mobility & Automotive Industry (Student at SRH University of Applied Sciences)',
+    message: 'What I found most valuable was how Saiful Islam structured the Photovoltaics, Heating & Cooling elective to connect theoretical knowledge with practical implementation. I also had the invaluable opportunity to learn alongside Muhammad Talha from Vattenfall, which enhanced my understanding of practical industry applications and energy management systems. Mr. Saiful is supervising my thesis work, and he has guided me through specialized software tools like Homer and PVSOL. His expertise in these industry-standard applications has been crucial for my research and understanding of practical energy system design and analysis.',
     image: 'https://robohash.org/7',
   },
   {
-    name: 'John Doe',
-    position: 'Software Engineer at XYZ Ltd.',
-    message: 'The courses offered by the university have been instrumental in shaping my career.',
+    name: 'Pawan Premanand Balgi',
+    position: 'Student, Engineering and Sustainable Technology Management - Mobility & Automotive Industry (Student at SRH University of Applied Sciences)',
+    message: 'I have attended the course In-Depth Knowledge of Renewable Power – Photovoltaics or Decentralized Energy Management Systems and found the content to be extremely insightful. The course inspired me to explore research in these topics. I also had the opportunity to learn alongside Mr. Saiful Islam and Mr. Muhammad Talha from Vattenfall, which further deepened my interest in energy management, technical design, and simulation in this field. Additionally, I have completed my internship at Meloon GmbH in Design and Monitoring of Pilot Plants in Berlin. The knowledge gained from this course has been valuable in enhancing my skills in design and simulation as well.',
     image: 'https://robohash.org/8',
-  },
-  {
-    name: 'Jane Smith',
-    position: 'Project Manager at ABC Inc.',
-    message: 'Excellent faculty and comprehensive curriculum made my learning experience worthwhile.',
-    image: 'https://robohash.org/42',
-  },
+  }
   // Add more testimonials as needed
 ];
 
@@ -74,7 +68,7 @@ const TestimonialsSlider = () => {
 
   return (
     <div className="bg-gray-100 py-16">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <h2 className="text-center text-3xl font-bold mb-4">What Our Students Say</h2>
         <div className="w-24 my-4 bg-amber-500 h-1.5 rounded-full mx-auto"></div>
         <Slider {...settings}>
@@ -86,9 +80,9 @@ const TestimonialsSlider = () => {
                   alt={testimonial.name}
                   className="w-24 h-24 rounded-full mb-4 object-cover border border-slate-300"
                 />
-                <p className="text-gray-700 mb-4 text-center text-sm italic">"{testimonial.message}"</p>
-                <p className="font-semibold">{testimonial.name}</p>
-                <p className="text-gray-500">{testimonial.position}</p>
+                <p className="text-gray-800 mb-4 text-center text-sm italic">"{testimonial.message}"</p>
+                <p className="font-semibold mb-1 text-lg">{testimonial.name}</p>
+                <p className="text-gray-500 text-sm text-center">{testimonial.position}</p>
               </div>
             </div>
           ))}

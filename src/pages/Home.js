@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import TestimonialsSlider from "../components/TestimonialsSlider";
 import Contact from "./Contact";
 import logo from '../images/logo.png'
+import cetificateIE from '../images/cetificateIE.png'
+import HeroSlider from "../components/HeroSlider";
 
 const Home = () => {
   // const HoverCard = ({ image, title, description }) => {
@@ -24,59 +26,10 @@ const Home = () => {
   //   );
   // };
 
+
   return (
     <>
-      <div className="relative bg-gray-800">
-        {/* Background Image */}
-        <div className="absolute inset-0 h-[75dvh]">
-          <img
-            src="/heroImage.jpg"
-            alt="Solar Panels"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black opacity-50"></div>
-        </div>
-
-        {/* Hero Content */}
-        <div className="relative z-10 flex flex-col items-start justify-center text-left text-white px-4 h-[75dvh] max-w-[1300px] mx-auto">
-          <div className="max-w-4xl">
-            <h1 className="text-3xl md:text-4xl w-full font-bold mb-4">
-              Our Passion is Education and Academic Excellence
-            </h1>
-            <div className="w-24 my-4 bg-yellow-500 h-1.5 rounded-full"></div>
-            <p className="text-sm md:text-base mb-8 max-w-3xl">
-              Empowering students to pursue their dreams through diverse,
-              high-quality courses that meet the demands of today’s evolving
-              world.
-            </p>
-          </div>
-          <Link
-            to={"/about"}
-            className="bg-yellow-500 hover:bg-yellow-600 text-white py-3 px-6 rounded font-semibold text-base flex justify-center items-center gap-2"
-          >
-            <p>Learn more </p>
-            <GoArrowRight className="h-7 w-7" />
-          </Link>
-        </div>
-
-        {/* Scroll Down Indicator */}
-        <div className="absolute bottom-8 w-full text-center">
-          <svg
-            className="w-6 h-6 mx-auto text-white animate-bounce"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </div>
-      </div>
+      <HeroSlider />
       <div className="bg-white py-16 px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-20 ">
@@ -85,7 +38,7 @@ const Home = () => {
                 // src="course1.png"
                 src={logo}
                 alt="Courses"
-                className="w-full object-cover rounded"
+                className="w-[80%] object-cover rounded"
               />
             </div>
 
@@ -95,10 +48,7 @@ const Home = () => {
               </h3>
               <div className="w-24 my-4 bg-amber-400 h-2 rounded-full mx-auto"></div>
               <p className="text-gray-600 text-sm mb-4  md:w-3/4 mx-auto">
-                Our university provides a comprehensive selection of courses
-                across various disciplines. Gain access to world-class
-                education, experienced faculty, and cutting-edge research
-                facilities.
+                Our training provides a comprehensive selection of courses across various disciplines. Gain access to world-class education, experienced faculty, and cutting-edge research facilities. The trainers are certified by renowned institutions in their field and possess extensive expertise and experience in their respective domains.
               </p>
             </div>
 
@@ -125,9 +75,9 @@ const Home = () => {
 
             <div className="flex justify-center items-center">
               <img
-                src={logo}
+                src={cetificateIE}
                 alt="Courses"
-                className="w-full object-cover rounded"
+                className="w-[60%] object-cover rounded"
               />
             </div>
           </div>
@@ -151,6 +101,7 @@ const Home = () => {
         />
       </div> */}
       <TestimonialsSlider />
+      
       <Contact />
     </>
   );

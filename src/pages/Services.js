@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import toast, { Toaster } from "react-hot-toast";
-
+import trainingSessionimage from '../images/trainingSessionImage.png'
 const Services = () => {
   const objectives = [
     {
@@ -105,6 +105,8 @@ const Services = () => {
     }
   };
 
+  
+
   const members = [
     {
       id: "1",
@@ -114,20 +116,6 @@ const Services = () => {
       designation: "Geschäftsführender Vorstand"
     },
     {
-      id: "2",
-      name: "Dr. Jörg Röseler, Vorsitzender",
-      image: "",
-      shortInfo: "",
-      designation: "Vorstand"
-    },
-    {
-      id: "3",
-      name: "Dr. Tilmann Hickel",
-      image: "",
-      shortInfo: "",
-      designation: "Vorstand"
-    },
-    {
       id: "4",
       name: "Dr. Klaus-Ulrich Neumann",
       image: "",
@@ -135,52 +123,10 @@ const Services = () => {
       designation: "Kuratorium"
     },
     {
-      id: "5",
-      name: "Prof. Dr. Gudrum Kammasch",
-      image: "",
-      shortInfo: "Professor of Life Sciences with a focus on biotechnology and sustainable development.",
-      designation: "Kuratorium"
-    },
-    {
-      id: "6",
-      name: "Dr. André Prößdorf",
-      image: "",
-      shortInfo: "Consultant and lecturer in applied mathematics and computational mechanics.",
-      designation: "Vorstand"
-    },
-    {
       id: "7",
       name: "Dr. h.c. Hinrich Enderlein",
       image: "",
       shortInfo: "Vorsitzender",
-      designation: "Kuratorium"
-    },
-    {
-      id: "8",
-      name: "Sabine Knapp-Lohmann",
-      image: "",
-      shortInfo: "",
-      designation: "Kuratorium"
-    },
-    {
-      id: "9",
-      name: "Ursula Leyk",
-      image: "",
-      shortInfo: "",
-      designation: "Kuratorium"
-    },
-    {
-      id: "10",
-      name: "Stefan Waander",
-      image: "",
-      shortInfo: "Techniker-Krankenkasse",
-      designation: "Kuratorium"
-    },
-    {
-      id: "11",
-      name: "Dr. Anke Schwendel",
-      image: "",
-      shortInfo: "",
       designation: "Kuratorium"
     },
     {
@@ -192,6 +138,14 @@ const Services = () => {
     },
   ];
 
+  
+    const trainingImages = [
+      {
+        src: trainingSessionimage,
+        alt: 'training session',
+        title: 'training session',
+      },
+    ];
 
   return (
     <>
@@ -280,6 +234,30 @@ const Services = () => {
               <p className="text-gray-700 text-sm">{item.description}</p>
             </div>
           ))}
+        </div>
+      </div>
+      {/* training session */}
+      <div className="bg-white py-16 px-8">
+        <div className="max-w-7xl mx-auto">
+          <h3 className="text-2xl font-bold text-center">Training Session</h3>
+          <div className="w-16 my-4 bg-amber-400 h-2 rounded-full mx-auto"></div>
+          <p className="italic text-center text-gray-700 mb-6">
+            Here are a few pictures from the training session, captured by the instructors during their practical work.
+          </p>
+          <div className="grid grid-cols-1  gap-6">
+            {trainingImages.map((image, index) => (
+              <div key={index} className="text-center">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  // width={400}
+                  // height={300}
+                  className="rounded shadow-lg mx-auto"
+                />
+                {/* <p className="mt-4 text-sm text-gray-600 font-semibold">{image.title}</p> */}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

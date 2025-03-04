@@ -665,6 +665,10 @@ const AboutUs = () => {
         <p className="text-sm text-justify mb-4">
           <a href="mailto:vorstand@inside-ev.net">vorstand@inside-ev.net</a>
         </p>
+        <h2 className="text-xl md:text-2xl font-semibold mb-4">Steuernummer</h2>
+        <p className="text-sm text-justify mb-4">
+          <a href="mailto:vorstand@inside-ev.net">27 / 653 / 52253</a>
+        </p>
         <h2 className="text-xl md:text-2xl font-semibold mb-4">Old Website</h2>
         <p className="text-sm text-justify mb-4">
           <a href="http://www.inside-ev.net" target="_blank" without rel="noreferrer">http://www.inside-ev.net</a>
